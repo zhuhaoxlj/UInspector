@@ -87,7 +87,9 @@ class UInspectorNotificationService : Service() {
             else R.drawable.notification_start
         )
         val flag =
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                FLAG_IMMUTABLE or FLAG_UPDATE_CURRENT
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT or FLAG_IMMUTABLE
             } else {
                 FLAG_ONE_SHOT or FLAG_UPDATE_CURRENT
